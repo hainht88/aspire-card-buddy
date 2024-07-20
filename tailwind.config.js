@@ -31,6 +31,7 @@ export default {
         'primary-lighter': 'var(--color-primary-lighter)',
         secondary: 'var(--color-secondary)',
         accent: 'var(--color-accent)',
+        'accent-light': 'var(--color-accent-light)',
         positive: 'var(--color-positive)',
         negative: 'var(--color-negative)',
         info: 'var(--color-info)',

@@ -36,7 +36,7 @@ watch(
       @click="reveal = !reveal"
     >
       <Eye classes="tw-fill-current" width="16px" height="16px" />
-      <div>{{ reveal ? 'Hide' : 'Show' }} card number</div>
+      <div class="tw-w-[115px]">{{ reveal ? 'Hide' : 'Show' }} card number</div>
     </div>
     <!-- card -->
 
