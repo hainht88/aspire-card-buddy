@@ -141,7 +141,7 @@ watch(
           <div
             class="tw-flex tw-items-center tw-gap-x-[30px] tw-mt-[13px] md:tw-mt-[17px] tw-leading-6 tw-text-13 tw-font-bold"
           >
-            <div class="tw-leading-[18px] tw-tracking-[1.56px]">Thru: 12/20</div>
+            <div class="tw-leading-[18px] tw-tracking-[1.56px]">{{ card.expDate }}</div>
             <div class="tw-flex tw-items-center">
               <span class="tw-tracking-[0.31px]">CVV:</span>
               <span class="tw-text-24 tw-tracking-[2.88px] tw-ml-1">

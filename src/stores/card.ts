@@ -2,6 +2,9 @@ import { defineStore } from 'pinia';
 import { randomId } from '@/helpers/randomId';
 import { CardType } from '@/interfaces/enums/CardType';
 import type { CardStore } from '@/interfaces/CardStore';
+import { generateExpDate } from '@/helpers/generateExpDate';
+
+const expDate = generateExpDate(new Date().toString());
 
 export const useCardStore = defineStore('cards', {
   state: (): CardStore => ({
@@ -11,26 +14,32 @@ export const useCardStore = defineStore('cards', {
       {
         id: randomId(0, 9),
         isMyCard: true,
+        expDate,
       },
       {
         id: randomId(0, 9),
         isMyCard: true,
+        expDate,
       },
       {
         id: randomId(0, 9),
         isMyCard: false,
+        expDate,
       },
       {
         id: randomId(0, 9),
         isMyCard: true,
+        expDate,
       },
       {
         id: randomId(0, 9),
         isMyCard: true,
+        expDate,
       },
       {
         id: randomId(0, 9),
         isMyCard: false,
+        expDate,
       },
     ],
   }),
