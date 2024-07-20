@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { generateId } from '@/helpers/generateId';
 import { CardType } from '@/interfaces/enums/CardType';
+import type { Card } from '@/interfaces/Card';
 import type { CardStore } from '@/interfaces/CardStore';
 import { generateExpDate } from '@/helpers/generateExpDate';
 
@@ -61,4 +62,20 @@ export const useCardStore = defineStore('cards', {
       ),
     currentCards: (state: CardStore) => state.currentCard,
   },
+  actions: {
+    addNewCard({ name }: { name: string }) {
+      const newCard: Card = {
+        id: generateId(),
+        isMyCard: this?.currentCardType === CardType.myCard,
+        expDate,
+        name
+      }
+      this.cards.push(newCard);
+      this.currentCard = this.cardsByCardType[0];
+    },
+    cancelCard({ id }: { id: string }) {
+      this.cards = this.cards.filter((card) => card.id !== id);
+      this.currentCard = this.cardsByCardType[0];
+    }
+  }
 });

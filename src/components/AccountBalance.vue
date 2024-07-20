@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Logo from '@/components/icons/Logo.vue';
 import PlusInside from '@/components/icons/PlusInside.vue';
+import AddCardModal from '@/components/AddCardModal.vue';
+
+const isOpened = ref(false);
 </script>
 
 <template>
@@ -27,8 +31,10 @@ import PlusInside from '@/components/icons/PlusInside.vue';
         class="tw-h-[35px] tw-w-[109px] tw-ml-auto tw-text-accent tw-text-13 tw-font-bold tw-leading-[18px] md:tw-border md:tw-rounded tw-flex tw-justify-end tw-items-center md:tw-bg-primary-light md:tw-text-white md:hover:tw-opacity-80 md:tw-justify-center"
       >
         <PlusInside classes="tw-fill-current" width="16px" height="16px" />
-        <div class="tw-ml-[6px] md:tw-ml-2">New card</div>
+        <div @click="isOpened = !isOpened" class="tw-ml-[6px] md:tw-ml-2">New card</div>
       </button>
     </div>
   </div>
+
+  <AddCardModal v-model="isOpened" />
 </template>

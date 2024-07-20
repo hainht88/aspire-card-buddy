@@ -3,4 +3,5 @@ export interface Card {
   isMyCard: boolean;
   expDate: string;
   name: string;
+  isFreezed?: boolean;
 }

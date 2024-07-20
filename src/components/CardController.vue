@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import { useCardStore } from '@/stores/card';
+
+interface Controller {
+  id: string;
+  label: string;
+  src: string;
+}
+
+const cardStore = useCardStore();
+
 const controllers = [
   {
     id: 'freezeCard',
@@ -26,11 +36,28 @@ const controllers = [
     src: new URL('../assets/CancelCard.svg', import.meta.url).href,
   },
 ]
+
+const onClick = (controller: Controller) => {
+  if (controller.id === 'freezeCard' && cardStore.currentCard) {
+    cardStore.currentCard.isFreezed = !cardStore.currentCard.isFreezed;
+    return;
+  }
+
+  if (controller.id === 'cancelCard' && cardStore.currentCard) {
+    cardStore.cancelCard({ id: cardStore.currentCard.id });
+    return;
+  }
+}
 </script>
 
 <template>
   <div class="tw-min-h-[116px] tw-w-full tw-bg-gray-2 tw-mt-6 lg:tw-mb-6 tw-rounded-t-xl md:tw-rounded-b-xl tw-flex tw-justify-between tw-items-center tw-px-[27px] tw-py-[21px]">
-    <div class="tw-flex tw-flex-col tw-justify-between tw-items-center" v-for="(controller, index) of controllers" :key="index">
+    <div
+      class="tw-flex tw-flex-col tw-justify-between tw-items-center"
+      v-for="(controller, index) of controllers"
+      :key="index"
+      @click="onClick(controller)"
+    >
       <q-img class="tw-mb-[7px]" width="32px" height="32px" :src="controller.src" />
       <span class="tw-text-13 tw-font-normal tw-leading-[14px] tw-text-primary tw-text-center">{{ controller.label }}</span>
     </div>

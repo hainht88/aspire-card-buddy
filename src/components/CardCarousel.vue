@@ -29,7 +29,8 @@ watch(
 </script>
 
 <template>
-  <div class="tw-flex tw-flex-col tw-w-[358px] xl:tw-w-[414px]">
+  <div v-if="!cardStore.currentCard" class="tw-h-[260px] tw-flex tw-justify-center tw-items-center">No card Available !!!</div>
+  <div v-else class="tw-flex tw-flex-col tw-w-[358px] xl:tw-w-[414px]">
     <!-- show card number -->
     <div
       class="tw-cursor-pointer tw-flex tw-justify-center tw-items-center tw-gap-x-[6px] w-full md:tw-justify-end tw-self-end tw-h-[27px] tw-w-[151px] tw-px-[9px] md:tw-px-0 md:tw-mr-0 tw-bg-white tw-py-[5px] md:tw-pb-4 md:tw-pt-0 md:tw-mt-8 tw-text-12 tw-font-semibold md:tw-font-bold tw-text-secondary tw-text-center tw-rounded-t-md tw-relative after:tw-absolute after:-tw-bottom-4 after:tw-right-0 after:content-[''] after:tw-w-5 after:tw-h-5 after:tw-bg-white"
@@ -65,8 +66,11 @@ watch(
         class="no-padding"
       >
         <div
-          class="tw-flex tw-flex-col tw-h-[220px] xl:tw-h-[249px] tw-bg-secondary tw-rounded-xl tw-p-6"
+          class="tw-relative tw-flex tw-flex-col tw-h-[220px] xl:tw-h-[249px] tw-bg-secondary tw-rounded-xl tw-p-6"
         >
+          <!-- freeze card -->
+          <q-icon v-if="card.isFreezed" class="animate-bounce tw-absolute tw-top-5 tw-left-5 tw-text-26 tw-text-primary tw-animate-bounce" name="lock" />
+
           <!-- logo -->
           <div class="tw-self-end">
             <LogoWithText
