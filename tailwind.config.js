@@ -1,0 +1,50 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  prefix: 'tw-',
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        primary: 'var(--font-primary)',
+        secondary: 'var(--font-secondary)',
+        accent: 'var(--font-accent)',
+        positive: 'var(--font-positive)',
+        negative: 'var(--font-negative)',
+        info: 'var(--font-info)',
+        warning: 'var(--font-warning)',
+      },
+      fontSize: {
+        9: 'var(--font-size-9)',
+        12: 'var(--font-size-12)',
+        13: 'var(--font-size-13)',
+        14: 'var(--font-size-14)',
+        15: 'var(--font-size-15)',
+        16: 'var(--font-size-16)',
+        22: 'var(--font-size-22)',
+        24: 'var(--font-size-24)',
+        26: 'var(--font-size-26)',
+      },
+      colors: {
+        primary: 'var(--color-primary)',
+        'primary-light': 'var(--color-primary-light)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        positive: 'var(--color-positive)',
+        negative: 'var(--color-negative)',
+        info: 'var(--color-info)',
+        warning: 'var(--color-warning)',
+        'gray-1': 'var(--color-gray-1)',
+        'gray-2': 'var(--color-gray-2)',
+        'gray-3': 'var(--color-gray-3)',
+        'border-gray': 'var(--border-gray)',
+      },
+      boxShadow: {
+        menu: 'var(--shadow-menu)',
+        card: 'var(--shadow-card)',
+        accordion: 'var(--shadow-accordion)',
+        main: 'var(--shadow-main)',
+      },
+    },
+  },
+  plugins: [],
+};
