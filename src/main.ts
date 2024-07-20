@@ -18,4 +18,4 @@ app.use(Quasar, {
 	plugins: {}, // import Quasar plugins and add here
 });
 
-app.mount('#app');
+app.mount('#aspire');

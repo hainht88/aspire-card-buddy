@@ -5,7 +5,7 @@ import MainNavigator from '@/components/MainNavigator.vue';
 
 <template>
   <div
-    class="tw-fixed tw-bottom-0 tw-left-0 tw-w-full tw-bg-white tw-text-white tw-p-0 md:tw-static md:tw-bg-primary md:tw-p-[48px]"
+    class="tw-fixed tw-z-10 tw-bottom-0 tw-left-0 tw-w-full tw-bg-white tw-text-white tw-p-0 md:tw-static md:tw-bg-primary md:tw-p-[48px]"
   >
     <!-- logo and slogan -->
     <div class="tw-hidden md:tw-block">

@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div id="aspire" class="tw-font-primary">
+  <div class="tw-font-primary">
     <RouterView />
   </div>
 </template>
