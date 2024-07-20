@@ -42,7 +42,7 @@ const routes = [
     <ul
       class="tw-flex tw-flex-row tw-justify-between tw-items-center md:tw-items-start tw-h-full tw-mx-[30px] md:tw-mx-0 md:tw-flex-col md:tw-gap-[60px]"
     >
-      <li v-for="(route, idx) of routes" :key="idx">
+      <li v-for="(route, index) of routes" :key="index">
         <RouterLink
           :to="route.to"
           class="tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-text-gray-1 hover:tw-text-secondary tw-gap-1 md:tw-gap-4"

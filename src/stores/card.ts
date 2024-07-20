@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { randomId } from '@/helpers/randomId';
+import { generateId } from '@/helpers/generateId';
 import { CardType } from '@/interfaces/enums/CardType';
 import type { CardStore } from '@/interfaces/CardStore';
 import { generateExpDate } from '@/helpers/generateExpDate';
@@ -12,34 +12,40 @@ export const useCardStore = defineStore('cards', {
     currentCard: null,
     cards: [
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: true,
         expDate,
+        name: 'Michael Owen'
       },
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: true,
         expDate,
+        name: 'David Beckham'
       },
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: false,
         expDate,
+        name: 'Dennis Bergkamp'
       },
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: true,
         expDate,
+        name: 'Michael Ballack'
       },
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: true,
         expDate,
+        name: 'John Cena'
       },
       {
-        id: randomId(0, 9),
+        id: generateId(),
         isMyCard: false,
         expDate,
+        name: 'The Rock'
       },
     ],
   }),

@@ -1,29 +1,27 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { storeToRefs } from 'pinia';
 import Eye from '@/components/icons/Eye.vue';
 import LogoWithText from '@/components/icons/LogoWithText.vue';
 import Visa from '@/components/icons/Visa.vue';
 import { useCardStore } from '@/stores/card';
 
 const cardStore = useCardStore();
-const { cardsByCardType, currentCard, currentCardType } = storeToRefs(cardStore);
 
 const reveal = ref(false);
 
-currentCard.value = cardsByCardType.value[0];
+cardStore.currentCard = cardStore.cardsByCardType[0];
 
 watch(
-  () => currentCardType.value,
+  () => cardStore.currentCardType,
   () => {
-    currentCard.value = cardsByCardType.value[0];
+    cardStore.currentCard = cardStore.cardsByCardType[0];
     reveal.value = false;
   },
   { immediate: true },
 );
 
 watch(
-  () => currentCard.value,
+  () => cardStore.currentCard,
   () => {
     reveal.value = false;
   },
@@ -43,7 +41,7 @@ watch(
     <!-- card -->
 
     <q-carousel
-      v-model="currentCard"
+      v-model="cardStore.currentCard"
       transition-prev="scale"
       transition-next="scale"
       swipeable
@@ -61,8 +59,8 @@ watch(
         ></div>
       </template>
       <q-carousel-slide
-        v-for="(card, idx) of cardsByCardType"
-        :key="idx"
+        v-for="(card, index) of cardStore.cardsByCardType"
+        :key="index"
         :name="card"
         class="no-padding"
       >
@@ -83,57 +81,31 @@ watch(
           <div
             class="tw-mt-6 md:tw-mt-7 tw-text-22 md:tw-text-24 tw-leading-5 tw-tracking-[0.53px] md:tw-tracking-[0.58px] tw-font-bold"
           >
-            Mark Henry
+            {{ card.name }}
           </div>
 
           <!-- number -->
           <div class="tw-mt-[29px] md:tw-mt-[33px]">
             <ul
-              class="tw-flex tw-items-center tw-gap-x-6 tw-text-14 tw-font-bold tw-leadding-[19px] tw-tracking-[3.46px]"
+              class="tw-flex tw-items-center tw-text-14 tw-font-bold tw-leadding-[19px] tw-tracking-[3.46px]"
             >
-              <li class="tw-flex tw-gap-x-[6px]">
+              <li class="" v-for="(char, charIndex) of card.id" :key="charIndex">
                 <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
+                  class="tw-flex tw-w-4"
+                  :class="{
+                    'md:tw-ml-6 tw-ml-4': charIndex !== 0 && charIndex % 4 === 0,
+                  }"
+                >
+                  <div
+                    :class="{
+                      'tw-w-2 tw-h-2 tw-bg-white tw-rounded-full': !reveal && charIndex < 12,
+                      'tw-text-18 md:tw-text-19': reveal || charIndex >= 12,
+                    }"
+                  >
+                    {{ reveal || charIndex >= 12 ? char : '' }}
+                  </div>
+                </div>
               </li>
-              <li class="tw-flex tw-gap-x-[6px]">
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-              </li>
-              <li class="tw-flex tw-gap-x-[6px]">
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-                <div
-                  class="tw-w-2 tw-h-2 md:tw-w-[9px] md:tw-h-[10px] tw-bg-white tw-rounded-full"
-                ></div>
-              </li>
-              <li>2022</li>
             </ul>
           </div>
 

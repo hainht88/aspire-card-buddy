@@ -1,5 +1,6 @@
 export interface Card {
-  id: number;
+  id: string;
   isMyCard: boolean;
   expDate: string;
+  name: string;
 }

@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { storeToRefs } from 'pinia';
 import { CardType } from '@/interfaces/enums/CardType';
 import { useCardStore } from '@/stores/card';
 
-const { currentCardType } = storeToRefs(useCardStore());
+const cardStore = useCardStore();
 
 const tabs = ref([
   { id: CardType.myCard, label: 'My debit cards' },
   { id: CardType.companyCard, label: 'All company cards' },
 ]);
 
-currentCardType.value = CardType.myCard;
+cardStore.currentCardType = CardType.myCard;
 
 const onClick = (id: CardType) => {
-  currentCardType.value = id;
+  cardStore.currentCardType = id;
 };
 </script>
 
@@ -24,12 +23,12 @@ const onClick = (id: CardType) => {
   >
     <div
       @click="onClick(tab.id)"
-      v-for="(tab, idx) of tabs"
-      :key="idx"
+      v-for="(tab, index) of tabs"
+      :key="index"
       class="tw-cursor-pointer tw-border-b-2 tw-border-transparent tw-transition-all tw-duration-75 tw-pb-[5.5px]"
       :class="{
-        'tw-font-bold !tw-border-accent': currentCardType === tab.id,
-        'tw-opacity-50 md:tw-opacity-30': currentCardType !== tab.id,
+        'tw-font-bold !tw-border-accent': cardStore.currentCardType === tab.id,
+        'tw-opacity-50 md:tw-opacity-30': cardStore.currentCardType !== tab.id,
       }"
     >
       {{ tab.label }}

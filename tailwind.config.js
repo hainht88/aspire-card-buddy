@@ -20,6 +20,7 @@ export default {
         14: 'var(--font-size-14)',
         15: 'var(--font-size-15)',
         16: 'var(--font-size-16)',
+        20: 'var(--font-size-20)',
         22: 'var(--font-size-22)',
         24: 'var(--font-size-24)',
         26: 'var(--font-size-26)',
