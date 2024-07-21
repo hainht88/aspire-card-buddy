@@ -53,10 +53,11 @@ watch(
       class="tw-bg-transparent tw-text-white tw-h-[260px] xl:tw-h-[289px]"
     >
       <template #navigation-icon="{ active, btnProps, onClick }" class="">
-        <div v-if="active" class="tw-mx-1 tw-w-4 tw-h-2 tw-bg-secondary tw-rounded-full"></div>
+        <div v-if="active" class="tw-cursor-pointer tw-mx-1 tw-w-4 tw-h-2 tw-bg-secondary tw-rounded-full" @click="onClick"></div>
         <div
           v-else
-          class="tw-mx-1 tw-w-2 tw-h-2 tw-bg-secondary tw-opacity-10 tw-rounded-full md:tw-opacity-20"
+          class="tw-cursor-pointer tw-mx-1 tw-w-2 tw-h-2 tw-bg-secondary tw-opacity-10 tw-rounded-full md:tw-opacity-20"
+          @click="onClick"
         ></div>
       </template>
       <q-carousel-slide
