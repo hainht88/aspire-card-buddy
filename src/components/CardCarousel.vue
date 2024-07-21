@@ -29,7 +29,7 @@ watch(
 </script>
 
 <template>
-  <div v-if="!cardStore.currentCard" class="tw-h-[260px] tw-flex tw-justify-center tw-items-center">No card Available !!!</div>
+  <div v-if="!cardStore.currentCard" class="tw-flex tw-justify-center tw-items-center tw-mt-4 tw-w-full tw-h-full tw-bg-red-200 tw-text-negative">No card Available !!!</div>
   <div v-else class="tw-flex tw-flex-col tw-w-[358px] xl:tw-w-[414px]">
     <!-- show card number -->
     <div

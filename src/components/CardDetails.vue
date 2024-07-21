@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const link = new URL('../assets/DownArrow.svg', import.meta.url).href;
 </script>
 
 <template>
@@ -239,7 +238,6 @@ const link = new URL('../assets/DownArrow.svg', import.meta.url).href;
               View all card transactions
             </div>
           </q-expansion-item>
-          
       </div>
     </div>
   </div>

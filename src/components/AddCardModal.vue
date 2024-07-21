@@ -4,7 +4,7 @@ import { useCardStore } from '@/stores/card';
 
 const cardStore = useCardStore();
 
-const isOpened = defineModel();
+const isOpened = defineModel<boolean>();
 const name = ref('');
 
 const onCLick = () => {
