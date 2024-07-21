@@ -2,11 +2,17 @@
 
 This is Aspire challenge
 
+## Demo link
+
+```sh
+https://aspire-card-buddy.vercel.app/
+```
+
 ## Project structure
 
 All codes is in /src folder
-  /assets - contains resources likes images (eg: svg)
-  /components - all components here
+  - /assets - contains resources likes images (eg: svg)
+  - /components - all components here
     /icons - component to display image, come in handy when you need to style for image
   /helpers - all helper utils here
   /interfaces - all types, interfaces here
