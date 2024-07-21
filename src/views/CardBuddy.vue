@@ -5,7 +5,7 @@ import MainAccount from '@/components/MainAccount.vue';
 
 <template>
   <div
-    class="tw-w-screen md:tw-min-h-screen tw-grid tw-grid-cols-1 md:tw-grid-cols-[280px_auto] lg:tw-grid-cols-[340px_auto]"
+    class="md:tw-min-h-screen tw-grid tw-grid-cols-1 md:tw-grid-cols-[280px_auto] lg:tw-grid-cols-[340px_auto]"
   >
     <MainNavBar />
     <MainAccount />
