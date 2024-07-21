@@ -6,7 +6,7 @@ const router = createRouter({
 		{
 			path: '/home',
 			name: 'Home',
-			component: () => import('@/views/Home.vue'),
+      redirect: '/',
 		},
 		{
 			path: '/',
@@ -15,9 +15,5 @@ const router = createRouter({
 		},
 	],
 });
-
-router.beforeEach((to, from, next) => {
-  if (to.name === 'CardBuddy') next()
-})
 
 export default router;
