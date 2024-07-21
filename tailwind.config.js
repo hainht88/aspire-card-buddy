@@ -4,6 +4,9 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        tiny: 'var(--screen-tiny)',
+      },
       fontFamily: {
         primary: 'var(--font-primary)',
         secondary: 'var(--font-secondary)',
